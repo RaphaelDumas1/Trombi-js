@@ -1,31 +1,15 @@
-<script>
-    async function recuperNom() {
-        let database = []
-        await fetch('etudiants.json')
-            .then(res => res.json())
-            .then((data) => database = [...data.students])
-        console.log(database)
-        return database
-    }
-    async function recupererDonnees() {
-        var eleves = [];
-        let datab = await recuperNom();
-        console.error(datab);
-        for (eleve of datab) {
-            console.warn(eleve);
-            fetch(`https://api.github.com/users/${eleve}`, { headers: new Headers({ "Authorization": "Bearer ->mettre clef git" }) })
-                .then(res => res.json())
-                .then((data) => eleves.push(data))
-                .catch(console.log('test'))
-            g = document.createElement('p')
-            g.id = "test"
-            document.body.appendChild(g);
-
-
-        }
-    }
-
-
+<script src="test.js">
 </script>
-<h1>test</h1>
-<button onclick="recupererDonnees()">test</button>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<body>
+    <div id="test" class="test"></div>
+    <h3></h3>
+    <button>test</button>
+</body>
+<script>
+    $(document).ready(function () {
+        recupererDonnees()
+        $("test").append("<li>list item</li>");
+    });
+</script>

@@ -15,7 +15,7 @@ async function recupererDonnees() {
     console.log(datab);
     for (eleve of datab) {
         console.warn(eleve);
-        await fetch(`https://api.github.com/users/${eleve}`, { headers: new Headers({ "Authorization": "Bearer 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" }) })
+        await fetch(`https://api.github.com/users/${eleve}`, { headers: new Headers({ "Authorization": "Bearer clef" }) })
             .then(res => res.json())
             .then((data) => eleves.push(data))
     }

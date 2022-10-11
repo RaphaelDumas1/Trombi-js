@@ -1,0 +1,31 @@
+<script>
+    async function recuperNom() {
+        let database = []
+        await fetch('etudiants.json')
+            .then(res => res.json())
+            .then((data) => database = [...data.students])
+        console.log(database)
+        return database
+    }
+    async function recupererDonnees() {
+        var eleves = [];
+        let datab = await recuperNom();
+        console.error(datab);
+        for (eleve of datab) {
+            console.warn(eleve);
+            fetch(`https://api.github.com/users/${eleve}`, { headers: new Headers({ "Authorization": "Bearer ->mettre clef git" }) })
+                .then(res => res.json())
+                .then((data) => eleves.push(data))
+                .catch(console.log('test'))
+            g = document.createElement('p')
+            g.id = "test"
+            document.body.appendChild(g);
+
+
+        }
+    }
+
+
+</script>
+<h1>test</h1>
+<button onclick="recupererDonnees()">test</button>
